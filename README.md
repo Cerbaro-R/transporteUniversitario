@@ -28,15 +28,17 @@ frontend/
     components/    componentes reutilizáveis
     routes/        rotas do React Router
     services/      chamadas à API
-docker-compose.yml Postgres local
 ```
 
 ## Como rodar
 
-1. Subir o banco:
-   ```bash
-   docker compose up -d
+1. Banco: ter o PostgreSQL instalado localmente e criar o banco:
+   ```sql
+   CREATE DATABASE transporte_universitario;
    ```
+   Em seguida, conectado em `transporte_universitario`, rodar o
+   `backend/database/schema.sql` para criar as tabelas. Depois ajustar
+   usuário e senha do Postgres no `backend/.env`.
 2. Back-end (porta 3333):
    ```bash
    cd backend
