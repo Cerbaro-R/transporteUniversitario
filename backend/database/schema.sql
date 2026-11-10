@@ -18,6 +18,10 @@ CREATE TABLE usuarios (
     senha_hash  VARCHAR(255) NOT NULL,
     perfil      VARCHAR(20)  NOT NULL DEFAULT 'aluno'
                 CHECK (perfil IN ('aluno', 'organizador')),
+    telefone       VARCHAR(20),
+    instituicao    VARCHAR(120),
+    curso          VARCHAR(120),
+    cidade_origem  VARCHAR(120),
     created_at  TIMESTAMPTZ  NOT NULL DEFAULT NOW(),
     updated_at  TIMESTAMPTZ  NOT NULL DEFAULT NOW()
 );
