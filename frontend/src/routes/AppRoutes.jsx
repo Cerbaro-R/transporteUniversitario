@@ -6,6 +6,7 @@ import Home from '../pages/Home'
 import Login from '../pages/Login'
 import NaoEncontrada from '../pages/NaoEncontrada'
 import NovoOrganizador from '../pages/NovoOrganizador'
+import Passageiros from '../pages/Passageiros'
 import { RotaPrivada, SomenteVisitante } from './guards'
 
 export default function AppRoutes() {
@@ -28,6 +29,10 @@ export default function AppRoutes() {
           <Route
             path="avisos"
             element={<RotaPrivada perfis={['organizador']}><Avisos /></RotaPrivada>}
+          />
+          <Route
+            path="passageiros"
+            element={<RotaPrivada perfis={['organizador']}><Passageiros /></RotaPrivada>}
           />
           <Route path="*" element={<NaoEncontrada />} />
         </Route>

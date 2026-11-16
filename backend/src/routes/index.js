@@ -5,6 +5,8 @@ const HealthController = require('../controllers/HealthController');
 const AuthController = require('../controllers/AuthController');
 const UsuarioController = require('../controllers/UsuarioController');
 const AvisoController = require('../controllers/AvisoController');
+const PassageiroController = require('../controllers/PassageiroController');
+const RotaPainelController = require('../controllers/RotaPainelController');
 
 const routes = Router();
 
@@ -26,5 +28,9 @@ routes.post(
 // Avisos
 routes.post('/avisos', autenticar, permitir('organizador'), AvisoController.criar);
 routes.get('/avisos', autenticar, AvisoController.listar);
+
+// Painel do organizador
+routes.get('/passageiros/rotas', autenticar, permitir('organizador'), RotaPainelController.listar);
+routes.get('/passageiros', autenticar, permitir('organizador'), PassageiroController.listar);
 
 module.exports = routes;
