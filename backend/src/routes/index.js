@@ -1,9 +1,10 @@
-const { Router } = require('express');
+﻿const { Router } = require('express');
 const autenticar = require('../middlewares/autenticar');
 const permitir = require('../middlewares/permitir');
 const HealthController = require('../controllers/HealthController');
 const AuthController = require('../controllers/AuthController');
 const UsuarioController = require('../controllers/UsuarioController');
+const AvisoController = require('../controllers/AvisoController');
 
 const routes = Router();
 
@@ -21,5 +22,9 @@ routes.post(
   permitir('organizador'),
   UsuarioController.cadastrarOrganizador
 );
+
+// Avisos
+routes.post('/avisos', autenticar, permitir('organizador'), AvisoController.criar);
+routes.get('/avisos', autenticar, AvisoController.listar);
 
 module.exports = routes;
