@@ -1,5 +1,6 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+﻿import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Layout from '../components/Layout'
+import Avisos from '../pages/Avisos'
 import Cadastro from '../pages/Cadastro'
 import Home from '../pages/Home'
 import Login from '../pages/Login'
@@ -23,6 +24,10 @@ export default function AppRoutes() {
           <Route
             path="organizadores/novo"
             element={<RotaPrivada perfis={['organizador']}><NovoOrganizador /></RotaPrivada>}
+          />
+          <Route
+            path="avisos"
+            element={<RotaPrivada perfis={['organizador']}><Avisos /></RotaPrivada>}
           />
           <Route path="*" element={<NaoEncontrada />} />
         </Route>

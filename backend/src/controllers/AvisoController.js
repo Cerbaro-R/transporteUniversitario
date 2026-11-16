@@ -9,7 +9,10 @@ module.exports = {
       const rotaId = req.body.rotaId || null;
 
       if (!mensagem) {
-        return res.status(400).json({ erro: 'A mensagem do aviso é obrigatória.' });
+        return res.status(400).json({
+          message: 'A mensagem do aviso é obrigatória.',
+          erros: { mensagem: 'A mensagem do aviso é obrigatória.' },
+        });
       }
 
       const aviso = await Aviso.create({
@@ -21,7 +24,7 @@ module.exports = {
       return res.status(201).json(aviso);
     } catch (erro) {
       console.error(erro);
-      return res.status(500).json({ erro: 'Não foi possível criar o aviso.' });
+      return res.status(500).json({ message: 'Não foi possível criar o aviso.' });
     }
   },
 
@@ -43,7 +46,7 @@ module.exports = {
       return res.json(avisos);
     } catch (erro) {
       console.error(erro);
-      return res.status(500).json({ erro: 'Não foi possível listar os avisos.' });
+      return res.status(500).json({ message: 'Não foi possível listar os avisos.' });
     }
   },
 };
