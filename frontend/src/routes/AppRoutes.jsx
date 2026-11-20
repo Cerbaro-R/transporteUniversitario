@@ -1,10 +1,12 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+﻿import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Layout from '../components/Layout'
+import Avisos from '../pages/Avisos'
 import Cadastro from '../pages/Cadastro'
 import Home from '../pages/Home'
 import Login from '../pages/Login'
 import NaoEncontrada from '../pages/NaoEncontrada'
 import NovoOrganizador from '../pages/NovoOrganizador'
+import Passageiros from '../pages/Passageiros'
 import { RotaPrivada, SomenteVisitante } from './guards'
 
 export default function AppRoutes() {
@@ -23,6 +25,14 @@ export default function AppRoutes() {
           <Route
             path="organizadores/novo"
             element={<RotaPrivada perfis={['organizador']}><NovoOrganizador /></RotaPrivada>}
+          />
+          <Route
+            path="avisos"
+            element={<RotaPrivada perfis={['organizador']}><Avisos /></RotaPrivada>}
+          />
+          <Route
+            path="passageiros"
+            element={<RotaPrivada perfis={['organizador']}><Passageiros /></RotaPrivada>}
           />
           <Route path="*" element={<NaoEncontrada />} />
         </Route>
